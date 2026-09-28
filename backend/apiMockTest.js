@@ -152,6 +152,8 @@ const request = (server, method, path, body, token) => new Promise((resolve, rej
 
         await check("Profile without token", "GET", "/api/users/profile", undefined, 401);
         await check("Profile", "GET", "/api/users/profile", undefined, 200, token);
+        await check("Update profile via PUT", "PUT", `/api/users/${user.userId}`, { name: "Updated Name" }, 200, token);
+        await check("Update profile via PATCH", "PATCH", `/api/users/${user.userId}`, { currency: "USD" }, 200, token);
 
         const expense = await check("Create expense", "POST", "/api/expenses", {
             amount: 500,

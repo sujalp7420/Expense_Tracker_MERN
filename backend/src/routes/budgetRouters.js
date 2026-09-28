@@ -16,6 +16,7 @@ router.post("/", createBudget);
 router.get("/", getBudgets);
 router.get("/:id", getBudgetById);
 router.patch("/:id", updateBudget);
+router.put("/:id", updateBudget);
 router.delete("/:id", deleteBudget);
 
 module.exports = router;

@@ -83,9 +83,10 @@ const loginUser = async (req, res) => {
             });
         }
 
+        const jwtSecret = process.env.JWT_SECRET || "default_expense_tracker_jwt_secret_key";
         const token = jwt.sign(
             { id: user._id.toString() },
-            process.env.JWT_SECRET,
+            jwtSecret,
             { expiresIn: "7d" }
         );
 

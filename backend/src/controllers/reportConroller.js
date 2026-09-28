@@ -44,8 +44,8 @@ const createReport = async (req, res) => {
             totalExpense: totalExpense || 0,
             totalSavings: totalSavings || 0,
 
-            fileType,
-            fileName,
+            fileType: fileType || "CSV",
+            fileName: fileName || `report-${year}-${month || "all"}.csv`,
             filePath
         });
 
